@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="vue.js"></script>
+    <script src="axios.min.js"></script>
+ 
+<div id="yi">
+    <table>
+    <tr v-for="user in userlist">
+        <td>{{user.name}}</td>
+        <td>{{user.age}}</td>
+    </tr>
+    </table>
+
+
+</div>
+<script>
+    new Vue({
+        el: '#yi',
+        data:{
+            //定义空数组变量，为了赋值
+        userlist:[]
+
+            
+        },
+        created(){
+            this.getList();
+            
+
+        },
+        methods:{
+            getList(){
+                axios.get("data.json")
+                .then(response => {
+                 this.userlist =  response.data.data.item;
+               
+
+                })
+                .catch(error =>{
+
+                })
+
+
+            }
+
+        }
+
+      
+         
+    })
+ 
+ 
+ 
+ </script>
+
+    
+</body>
+
+</html>

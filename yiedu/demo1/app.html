@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="vue.js"></script>
+    <script src="com.js"></script>
+<div id="yi">
+   <input type="text" v-bind:value="myname.message"/>
+   <input type="text" v-model="myname.content"/>
+   <button v-on:click="search()">Search</button>
+
+   <p>
+    {{myname.content}}
+   </p>
+   <input type="checkbox" v-model="ok"/>
+
+   <h1 v-if="ok"> ni yi jing bei xuanzhong</h1>
+   <h1 v-else> ni meiyou bei xuanzhong</h1>
+
+   <hr/>
+   <NavBar></NavBar>
+
+  <table>
+      <tr v-for="user in userList">
+          <td>{{user.id}}</td>
+          <td>{{user.name}}</td>
+          <td>{{user.age}}</td>
+
+      </tr>
+  </table>
+  
+ 
+
+
+</div>
+<script>
+    new Vue({
+        el: '#yi',
+        data:{
+            myname:{
+                message: "hellow V!",
+            content: "the second content for vue",
+        
+            },
+            ok:false,
+            userList:[
+                {id:1, name:"Alex", age:20},
+                {id:2, name:"Bob", age:21},
+                {id:3, name:"Charles", age:22}
+            ]
+        },
+        methods:{
+                search(){
+                    console.log("search.....");
+                }
+
+            },
+         
+    })
+ 
+ 
+ 
+ </script>
+
+    
+</body>
+
+</html>
